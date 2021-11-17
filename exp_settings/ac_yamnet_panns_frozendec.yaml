@@ -1,0 +1,52 @@
+adapt:
+  nb_layers: 1
+  pretrained: false
+  pretrained_path: ''
+data:
+  align_tokens_audio: true
+  audio_emb_size: 2048
+  batch_size: 2
+  cond_tok_class_sel: sample
+  cond_tok_field_name: yamnet_logits
+  cond_tok_separator: '. '
+  cond_tok_time_sel: unroll
+  drop_last: true
+  features_dir: audiocaps_vggish_yamnet_panns
+  input_field_name: panns_embeddings
+  kept_percent: 100
+  max_audio_len: 512
+  max_ctext_len: 128
+  normalize: false
+  num_workers: 8
+  output_field_name: caption
+  root_dir: ./
+  shuffle: true
+lm:
+  checkpoint_eval: 24000
+  combine_tokens_audio: add
+  custom_pretrained_ckpt: false
+  freeze_all: false
+  freeze_attn: false
+  freeze_dec: false
+  freeze_dec_attn: false
+  freeze_dec_mlp: true
+  freeze_dec_self_attn: true
+  freeze_enc: false
+  freeze_enc_attn: false
+  freeze_enc_mlp: false
+  freeze_mlp: false
+  name: facebook/bart-large
+  pretrained: true
+  token_conditioning: true
+training:
+  eval_steps: 1000
+  force_cpu: false
+  gradient_accumulation_steps: 4
+  lr: 1.0e-05
+  nb_epochs: 4
+  save_steps: 1000
+  seed: 0
+workflow:
+  evaluate: true
+  train: false
+  validate: false

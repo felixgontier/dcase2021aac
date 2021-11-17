@@ -41,7 +41,7 @@ class ClothoDatasetBART(torch.utils.data.Dataset):
         self.output_name = output_field_name
         self.tok_name = cond_tok_field_name
         if self.tok_name is not None and 'logits' in self.tok_name:
-            with open('../aac-models/audiocaps-dataset/data/'+self.tok_name.replace('_logits','')+'_class_map.csv', 'r') as f:
+            with open('./'+self.tok_name.replace('_logits','')+'_class_map.csv', 'r') as f:
                 num_classes = sum(1 for l in f)-1
                 self.class_map = [[] for l in range(num_classes)]
                 f.seek(0)

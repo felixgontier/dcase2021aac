@@ -1,0 +1,4 @@
+transformers==4.3.3
+tqdm
+matplotlib
+scikit-image
